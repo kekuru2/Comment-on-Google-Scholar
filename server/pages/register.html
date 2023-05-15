@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="http://127.0.0.1/pages/css/register.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="register">
+        <div class="container text-align-center">
+            谷歌学术评论系统用户注册界面v1.1
+        </div>
+        <div class="container">
+            <div class="input-des">用户名：*</div>
+            <input class="input-box" v-model="uname" placeholder="请输入1~20个字符的用户名">
+        </div>
+        <div class="container">
+            <div class="input-des">密码：*</div>
+            <input class="input-box" v-model="passwd" type="password" placeholder="请输入6位以上的密码">
+        </div>
+        <div class="container">
+            <div class="input-des">重复密码：*</div>
+            <input class="input-box" v-model="passwd2" type="password" placeholder="重复输入密码">
+        </div>
+        <div class="container">
+            <div class="input-des">邮箱：*</div>
+            <input class="input-box" v-model="email" placeholder="请输入您的邮箱">
+        </div>
+        <div class="container">
+            <button class="submit-button" @click="register">注册</button>
+        </div>
+    </div>
+    <script src="http://127.0.0.1/pages/js/register.js"></script>
+</body>
+</html>

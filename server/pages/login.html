@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="http://127.0.0.1/pages/css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+<body>
+    <div id="login">
+        <div class="container text-align-center">
+            谷歌学术评论系统用户登录界面v1.1
+        </div>
+        <div class="container">
+            <div class="input-des">用户名：</div>
+            <input class="input-box" v-model="uname" placeholder="请输入1~20个字符的用户名">
+        </div>
+        <div class="container">
+            <div class="input-des">密码：</div>
+            <input class="input-box" v-model="passwd" type="password" placeholder="请输入6位以上的密码">
+        </div>
+        <div class="container">
+            <button class="submit-button" @click="login">登录</button>
+        </div>
+    </div>
+    <script src="http://127.0.0.1/pages/js/login.js"></script>
+</body>
+</html>

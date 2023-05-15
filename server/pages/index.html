@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谷歌学术论文评论区</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://127.0.0.1/pages/css/index.css">
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+
+<body>
+    <div id="topBox">
+        <div class="unLogin" v-if="!isLogin">
+            <img src="http://127.0.0.1/pages/img/lion.png" class="topImage" alt="">
+            <a class="topInfo" href="javascript:;" @click="getLogin">登录</a>
+            <a class="topInfo" href="javascript:;" @click="getRegister">注册</a>
+        </div>
+        <div class="Login" v-if="isLogin">
+            <a class="topImage" href="http://127.0.0.1/pages/userinfo.html">
+                <img :src="uimg" class="topImage" alt="">
+            </a>
+            <a class="topInfo" href="http://127.0.0.1/pages/userinfo.html">{{uname}}</a>
+            <a class="topInfo" href="javascript:;" @click="logout">退出</a>
+        </div>
+    </div>
+    <!-- 评论展示部分 -->
+    <div id="commentBox">
+        <h2>评论区</h2>
+        <div>
+            <ul>
+                <li v-for="(item, index) in comments" :key="index">
+                    <!-- 顶端信息部分 -->
+                    <div class="content-topinfo">
+                        <img class="touxiang" :src="item.uimg">
+                        <span>{{item.uname}}</span>
+                        <!-- 点赞和评论数图片 -->
+                        <div class="pinglun">
+                            #{{item.layer}} 
+                            <img class="pinglunImg" src="http://127.0.0.1/pages/img/comment.png" alt="">
+                            {{item.sum}}
+                        </div>
+                    </div>
+                    <!-- 评论内容部分 -->
+                    <div class="content-container">
+                        <div class="time">{{item.time}}</div>
+                        <div class="content">{{item.content}}</div>
+                    </div>
+                    <!-- 楼中楼回复部分 -->
+                    <ul>
+                        <li v-for="(item2, index2) in item.innerContent">
+                            <div class="innerContent-container">
+                                <img class="innerTouxiang" :src="item2.uimg">
+                                <span>{{item2.uname}}</span>
+                                <div class="time">{{item2.time}}</div>
+                                <div class="content">{{item2.content}}</div>
+                                <div class="innerDelete-button" v-show="item2.isAuthor" @click="deleteItem2(item2.cid)">删除</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- 楼中楼评论入口 - 回复按键 -->
+                    <span class="reply-button" @click="changeShow(index)" v-if="!isShowArray[index]">回复</span>
+                    <!-- 删除当前评论 -->
+                    <span class="delete-button" v-show="item.isAuthor" @click="deleteItem(item.cid)">删除</span><br>
+                    <!-- 楼中楼评论入口 -->
+                    <div class="innerComment" v-if="isShowArray[index]">
+                        <textarea class="reply myTextarea" @change="changeContent" placeholder="评论他..."></textarea><br>
+                        <button class="submit-button" @click="insertItem2(item.cid, item.aid)">发送</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="replyBox">
+        <div>
+            <h2>发表评论</h2>
+            <div class="comment">
+                <textarea class="reply myTextarea" v-model="content" placeholder="输入您友善的评论..."></textarea><br>
+                <button class="submit-button" @click="insertItem()">发送</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="http://127.0.0.1/pages/js/index.js"></script>
+
+</body>
+
+</html>

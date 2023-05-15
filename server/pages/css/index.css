@@ -1,0 +1,324 @@
+/* 把我们所有标签的内外边距清零 */
+* {
+    margin: 0;
+    padding: 0
+}
+/* em 和 i 斜体的文字不倾斜 */
+em,
+i {
+    font-style: normal
+}
+/* 去掉li 的小圆点 */
+li {
+    list-style: none
+}
+
+img {
+    /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+    border: 0;
+    /* 取消图片底侧有空白缝隙的问题 */
+    vertical-align: middle
+}
+
+button {
+    /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+    cursor: pointer
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c81623
+}
+
+button,
+input {
+    /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
+    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+}
+
+body {
+    /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: inherit, 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    color: #666
+}
+
+.hide,
+.none {
+    display: none
+}
+/* 清除浮动 */
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
+}
+/* 初始化结束 */
+
+/* 整个页面 */
+body {
+    background-image: url('http://127.0.0.1/pages/img/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.95;
+}
+
+/* top顶侧个人中心 */
+#topBox {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.unLogin {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-content: center;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    height: 40px;
+}
+
+.Login {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-content: center;
+    position: absolute;
+    right: 0;
+    width: 250px;
+    height: 40px;
+}
+
+.topImage {
+    width: 36px;
+    height: 36px;
+    margin: auto 0;
+    border-radius: 50%;
+}
+
+.topInfo {
+    color:#0b0e07;
+    margin: auto 10px;
+}
+
+/* commentBox */
+#commentBox {
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 2%;
+    /* background-color: aqua; */
+    background: rgba(0, 255, 191, 0.6);
+
+    border-radius: 10px;
+}
+
+/* 每条大评论 */
+#commentBox ul li {
+    margin: 0 0 5px;
+    padding-bottom: 10px;
+    border: 1px;
+    background-color: rgba(203, 255, 196, 0.9);
+    border-radius: 10px;
+}
+
+.content-topinfo {
+    position: relative;
+    height: 40px;
+}
+
+.touxiang {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 3px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.pinglun {
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    height: 30px;
+}
+
+.pinglunImg {
+    height: 100%;
+}
+
+.content-container {
+    margin-left: 50px;
+}
+
+.time {
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.content {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* 楼中楼部分 */
+.innerContent-container {
+    position: relative;
+    margin: 0 0 0 50px;
+    padding: 0 5px 30px 5px;
+    width: 85%;
+    background: rgb(255, 255, 255);
+    border-radius: 6px;
+    box-shadow: 0.3em 0.3em 0.7em #00000015;
+    transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: rgb(250, 250, 250) 0.2em solid;
+}
+
+.innerTouxiang {
+    margin: 2px;
+    height: 30px;
+}
+
+.innerContent-container:hover {
+    border: #006fff 0.2em solid;
+}
+
+.innerDelete-button {
+    position: absolute;
+    right: 5%;
+    color: gray;
+    font-size: 14px;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.innerDelete-button:hover {
+    color: rgb(0, 174, 236);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 回复按键 */
+.reply-button {
+    position: absolute;
+    left: 8%;
+    width: 30%;
+    color: gray;
+    font-size: 14px;
+    font-style: italic;
+    text-decoration: underline;
+}
+.reply-button:hover {
+    color: rgb(0, 174, 236);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 删除按键 */
+.delete-button {
+    position: absolute;
+    right: 10%;
+    color: gray;
+    font-size: 14px;
+    font-style: italic;
+    text-decoration: underline;
+}
+.delete-button:hover {
+    color: rgb(0, 174, 236);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 楼中楼回复content输入窗口textarea */
+.innerComment {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 10px 50px 10px 50px;
+    height: 50px;
+}
+
+
+
+/* replyBox */
+#replyBox {
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+
+    width: 90%;
+    margin: 5px auto;
+    padding: 10px 2%;
+    background: rgba(0, 255, 106, 0.6);
+
+    border-radius: 10px;
+}
+
+.comment {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 10px 50px 10px 50px;
+    height: 80px;
+}
+
+.reply {
+    flex: 5;
+    padding: 10px 10px;
+    width: 80%;
+}
+
+.myTextarea {
+    border: 1px;
+    border-radius: 6px;
+    background-color: rgb(241, 242, 243);
+    font-family: inherit;
+    overflow: hidden;
+    resize: none;
+    outline: none;
+}
+
+.myTextarea:focus {
+    background-color: #fff;
+}
+
+.myTextarea:hover {
+    background-color: #fff;
+}
+
+.submit-button {
+    flex: 1;
+    margin-left: 5px;
+    font-size: 15px;
+    font-family: Arial;
+    border-width: 1px;
+    color: #fff;
+    border-color: #0b0e07;
+    border-radius: 6px;
+    box-shadow: inset 0px -3px 7px 0px #29bbff;
+    text-shadow: inset 0px 1px 0px #263666;
+    background: linear-gradient(#2dabf9, #0688fa);
+}
+.submit-button:hover {
+    background: linear-gradient(#0688fa, #2dabf9);
+    cursor: pointer;
+}
+
+
+

@@ -1,0 +1,31 @@
+{
+	"manifest_version": 3,
+	"name": "Chrome谷歌学术评论区插件",
+	"version": "1.2",
+	"description": "谷歌学术中对每个搜索结果增添评论区超链接",
+	"icons": {
+	  "16": "lion.png",
+	  "48": "lion.png",
+	  "128": "lion.png"
+	},
+	"action": {
+	  "default_icon": {
+		"19": "lion.png",
+		"38": "lion.png"
+	  },
+	  "default_title": "Chrome谷歌学术评论区插件",
+	  "default_popup": "popup.html"
+	},
+	"content_scripts": [
+	  {
+		"matches": ["https://scholar.google.com/scholar*", "https://scholar.google.com.hk/scholar*", "https://scholar.google.com.tw/scholar*"],
+		"css": [],
+		"js": [
+		  "content-script.js"
+		]
+	  }
+	],
+	"content_security_policy": {
+	  "extension_pages": "script-src 'self'; object-src 'self'"
+	}
+}

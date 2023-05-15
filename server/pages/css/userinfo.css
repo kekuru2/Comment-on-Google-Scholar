@@ -1,0 +1,167 @@
+/* 把我们所有标签的内外边距清零 */
+* {
+    margin: 0;
+    padding: 0
+}
+/* em 和 i 斜体的文字不倾斜 */
+em,
+i {
+    font-style: normal
+}
+/* 去掉li 的小圆点 */
+li {
+    list-style: none
+}
+
+img {
+    /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+    border: 0;
+    /* 取消图片底侧有空白缝隙的问题 */
+    vertical-align: middle
+}
+
+button {
+    /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+    cursor: pointer
+}
+
+a {
+    color: #666;
+    text-decoration: none
+}
+
+a:hover {
+    color: #c81623
+}
+
+button,
+input {
+    /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
+    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+}
+
+body {
+    /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: inherit, 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    color: #666
+}
+
+.hide,
+.none {
+    display: none
+}
+/* 清除浮动 */
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
+}
+/* 初始化结束 */
+
+/* 整个页面 */
+body {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    /* background-image: url('http://127.0.0.1/pages/img/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; */
+    /* opacity: 0.9; */
+}
+
+/* 大框 */
+#userinfo {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    position: absolute;
+    /* top: 50%; */
+    /* margin-top: -201px;  */
+    /* left: 50%; */
+    /* margin-left: -251px; */
+    padding: 50px;
+    /* background-color: #fff; */
+    /* border: 1px solid black; */
+    /* width: 100%; */
+    /* height: 300px; */
+    border-radius: 10px;
+}
+
+/*  */
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+    position: relative;
+    padding-bottom: 20px;
+    width: 400px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.input-des {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 16px;
+    color: #2dabf9;
+}
+
+.text-align-center {
+    font-weight: bold;
+    text-align: center;
+}
+
+.uimg {
+    height: 150px;
+}
+
+.bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+img {
+    height: 100%;
+}
+
+.input-box {
+    position: absolute;
+    border: 2px solid black;
+    padding: 2px;
+    right: 0;
+    width: 292px;
+    height: 22px;
+}
+
+.submit-button {
+    /* margin: 0 auto; */
+    height: 30px;
+    padding: 0 40px;
+    font-size: 15px;
+    font-family: Arial;
+    border-width: 1px;
+    color: #fff;
+    border-color: #0b0e07;
+    border-radius: 6px;
+    box-shadow: inset 0px -3px 7px 0px #29bbff;
+    text-shadow: inset 0px 1px 0px #263666;
+    background: linear-gradient(#2dabf9, #0688fa);
+}
+
+

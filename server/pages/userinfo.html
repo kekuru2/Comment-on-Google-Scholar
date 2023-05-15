@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谷歌学术评论系统 - 个人信息</title>
+    <link rel="stylesheet" href="http://127.0.0.1/pages/css/userinfo.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+</head>
+
+<body>
+    <div id="userinfo">
+        <div class="container text-align-center">
+            谷歌学术评论系统用户信息
+        </div>
+        <div class="container uimg">
+            <div class="input-des">头像：</div>
+            <img v-bind:src="uimg" alt="">
+            <button class="submit-button bottom" @click="changeUimg">更换头像</button>
+        </div>
+        <div class="container">
+            <div class="input-des">uid：</div>
+            <div class="input-des">{{uid}}</div>
+        </div>
+        <div class="container">
+            <div class="input-des">用户名：</div>
+            <div class="input-des">{{uname}}</div>
+        </div>
+        <div class="container">
+            <div class="input-des">邮箱：</div>
+            <div class="input-des">{{email}}</div>
+        </div>
+        <br>
+        <div>
+            <div class="input-des bold">修改用户名：</div>
+            <div class="container">
+                <div class="input-des">新用户名：</div>
+                <input class="input-box" v-model="newUname" placeholder="请输入1~20个字符的用户名">
+            </div>
+            <div class="container">
+                <button class="submit-button" @click="changeUname()">修改用户名</button>
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="input-des bold">修改密码：</div>
+            <div class="container">
+                <div class="input-des">原密码：</div>
+                <input class="input-box" v-model="passwd" type="password" placeholder="请输入旧密码">
+            </div>
+            <div class="container">
+                <div class="input-des">新密码：</div>
+                <input class="input-box" v-model="newPasswd" type="password" placeholder="请输入6位以上的密码">
+            </div>
+            <div class="container">
+                <div class="input-des">重复密码：</div>
+                <input class="input-box" v-model="newPasswd2" type="password" placeholder="请输入6位以上的密码">
+            </div>
+            <div class="container">
+                <button class="submit-button" @click="changePasswd">修改密码</button>
+            </div>
+        </div>
+    </div>
+    <script src="http://127.0.0.1/pages/js/userinfo.js"></script>
+</body>
+
+</html>
